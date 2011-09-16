@@ -20,7 +20,6 @@ use warnings;
 use strict;
 use MIME::Lite;
 use DateTime;
-use Data::Dumper;
 
 my $base;
 my $config;
@@ -108,8 +107,6 @@ sub getvmail {
     exit(1);
   }
 
-  print Dumper(\%d);
-
   return(\%d);
 
 }
@@ -147,7 +144,7 @@ sub smail {
     Type    => 'multipart/mixed'
   );
 
-  $msg->attach(Type     =>'text/print',
+  $msg->attach(Type     =>'text/plain',
                Data     => "This email message was delayed due to a system issue.\n\nDear $name:\n\n\tJust wanted to let you know you were just left a $d->{duration} long message (number $d->{number})\nin mailbox $d->{mailbox} from $d->{callerid}, on $d->{date}, so you might\nwant to check it when you get a chance.  Thanks!\n\n\t\t\t\t--Asterisk\n"
   );
 
