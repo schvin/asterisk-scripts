@@ -1,0 +1,4 @@
+resend-voicemail.pl - Simple script to resend voice mails from
+Asterisk via email. This could be useful in cases where the email
+server failed to accept them, the messages bounced for some reason,
+or sendmail was broken.
